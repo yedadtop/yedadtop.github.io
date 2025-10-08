@@ -1,19 +1,836 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <title>张三的个人主页</title>
-  <meta name="description" content="张三，5 年 UI 经验，曾服务阿里、字节，现接单做自由设计，邮箱 zhangsan@example.com" />
-  <meta name="keywords" content="张三,UI设计,自由设计师,作品集" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>叶芳俊 - 中国青年、人工智能专家 </title>
+    <meta name="description" content="叶芳俊，2002年1月13日出生于中国池州市，青年学者多项国际大奖获得者。专注于开源网络系统与智能路由技术研究，在Linux系统应用、OpenWrt固件开发与软路由架构优化方面有丰富实践经验。" />
+    <meta name="keywords" content="叶芳俊,人工智能,机器学习,深度学习,开源网络系统,智能路由技术,Linux,OpenWrt,中国青年" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="叶芳俊" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="zh-CN" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/index.html" />
+    <meta property="og:title" content="叶芳俊 - 中国青年、人工智能专家" />
+    <meta property="og:description" content="叶芳俊，2002年1月13日出生于中国池州市，青年科学家，人工智能领域学者，多项国际大奖获得者。" />
+    <meta property="og:image" content="https://yedadtop.github.io/%E5%8F%B6%E8%8A%B3%E4%BF%8A.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yedadtop.github.io/" />
+    <meta property="twitter:title" content="叶芳俊 - 中国青年、人工智能学者" />
+    <meta property="twitter:description" content="叶芳俊，2002年1月13日出生于中国池州市，，人工智能领域学者，多项国际大奖获得者。" />
+    <meta property="twitter:image" content="https://yedadtop.github.io/%E5%8F%B6%E8%8A%B3%E4%BF%8A.png" />
+    
+    <!-- 新增：引入放大镜图标 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.0/css/all.min.css">
+        <link rel="canonical" href="https://yedadtop.github.io/" />
+        
+        <!-- 结构化数据 -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "叶芳俊",
+            "alternateName": "月浮江",
+            "description": "中国青年，人工智能领域学者，多项国际大奖获得者",
+            "birthDate": "2002-01-13",
+            "birthPlace": {
+                "@type": "Place",
+                "name": "池州市，中国"
+            },
+            "gender": "男",
+            "nationality": {
+                "@type": "Country",
+                "name": "中国"
+            },
+            "jobTitle": "学者",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "None"
+            },
+            "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "皖江工学院"
+            },
+            "knowsAbout": [
+                "人工智能",
+                "机器学习",
+                "深度学习",
+                "开源网络系统",
+                "智能路由技术",
+                "Linux",
+                "OpenWrt"
+            ],
+            "award": [
+                "地球卫士奖",
+                "优秀青年",
+                "《时代周刊》年度风云人物",
+                "国家自然科学奖一等奖"
+            ],
+            "image": "https://yedadtop.github.io/%E5%8F%B6%E8%8A%B3%E4%BF%8A.png",
+            "url": "https://yedadtop.github.io/",
+            "sameAs": [
+                "https://yedadtop.github.io/"
+            ]
+        }
+        </script>
+    <link rel="canonical" href="https://yedadtop.github.io/" />
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    
+    /* 顶部导航栏 - 玻璃拟态效果 */
+    .header {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+        overflow: hidden;
+    }
+    
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        height: 70px;
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 26px;
+        font-weight: bold;
+        color: #2c5aa0;
+        letter-spacing: -0.5px;
+        flex-shrink: 0;
+    }
+    
+    nav {
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+    
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(44, 90, 160, 0.3) transparent;
+        gap: 8px;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .nav-menu::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .nav-menu::-webkit-scrollbar-thumb {
+        background: rgba(44, 90, 160, 0.3);
+        border-radius: 2px;
+    }
+
+    .nav-menu::-webkit-scrollbar-thumb:hover {
+        background: rgba(44, 90, 160, 0.5);
+    }
+    
+    .nav-menu li a {
+        text-decoration: none;
+        color: #444;
+        font-size: 14px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        display: block;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .nav-menu li a:hover {
+        background: rgba(44, 90, 160, 0.1);
+        color: #2c5aa0;
+        border-color: rgba(44, 90, 160, 0.2);
+    }
+    
+    .search-icon {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+    
+    .search-icon a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border-radius: 50%;
+        background: rgba(44, 90, 160, 0.1);
+        color: #2c5aa0;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        flex-shrink: 0;
+        text-decoration: none;
+    }
+    
+    .search-icon a:hover {
+        background: rgba(44, 90, 160, 0.2);
+        transform: scale(1.05);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-container {
+            padding: 0 15px;
+            gap: 10px;
+        }
+        
+        .logo {
+            font-size: 22px;
+        }
+        
+        .nav-menu {
+            gap: 6px;
+        }
+        
+        .nav-menu li a {
+            font-size: 13px;
+            padding: 6px 10px;
+        }
+        
+        .search-icon a {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-container {
+            padding: 0 10px;
+            gap: 8px;
+        }
+        
+        .logo {
+            font-size: 20px;
+        }
+        
+        .nav-menu li a {
+            font-size: 12px;
+            padding: 5px 8px;
+        }
+    }
+    
+    /* 主体内容区 */
+    .main-container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 20px;
+        display: flex;
+        gap: 25px;
+    }
+    
+    /* 左侧边栏 - 玻璃拟态效果 */
+    .sidebar-left {
+        width: 200px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+        height: fit-content;
+        position: sticky;
+        top: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .toc {
+        font-size: 14px;
+    }
+    
+    .toc-title {
+        font-weight: bold;
+        color: #2c5aa0;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(44, 90, 160, 0.2);
+    }
+    
+    .toc ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    
+    .toc li {
+        margin: 10px 0;
+    }
+    
+    .toc a {
+        text-decoration: none;
+        color: #4a5568;
+        display: block;
+        padding: 6px 12px;
+        transition: all 0.2s ease;
+        border-radius: 6px;
+    }
+    
+    .toc a:hover {
+        background: rgba(44, 90, 160, 0.08);
+        color: #2c5aa0;
+    }
+    
+    /* 中间内容区 */
+    .content {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    /* 标题区域 */
+    .page-header {
+        border-bottom: 1px solid rgba(44, 90, 160, 0.1);
+        padding-bottom: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .page-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #2c5aa0;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .page-subtitle {
+        font-size: 15px;
+        color: #4a5568;
+    }
+    
+    /* 信息框 - 玻璃拟态效果 */
+    .infobox {
+        float: left;
+        width: 280px;
+        margin: 0 25px 20px 0;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    }
+    
+    .infobox-image {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+        background: linear-gradient(135deg, #e0e7ff 0%, #d1e0ff 100%);
+        border-radius: 12px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4a5568;
+        font-size: 15px;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 3/4;
+    }
+    
+    .infobox-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23a0b4ff" stroke-width="2" stroke-dasharray="5,5"/></svg>');
+        opacity: 0.3;
+    }
+    
+    .infobox-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+    }
+    
+    .infobox-title {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2c5aa0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(44, 90, 160, 0.1);
+    }
+    
+    .infobox-row {
+        display: flex;
+        margin: 12px 0;
+        font-size: 14px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .infobox-label {
+        font-weight: bold;
+        width: 80px;
+        color: #4a5568;
+    }
+    
+    .infobox-value {
+        flex: 1;
+        color: #2d3748;
+    }
+    
+    /* 正文内容 */
+    .article-section {
+        margin: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c5aa0;
+        margin: 25px 0 15px;
+        padding: 12px 0;
+        border-bottom: 2px solid rgba(44, 90, 160, 0.15);
+    }
+    
+    .section-content {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #4a5568;
+        text-align: justify;
+    }
+    
+    .section-content p {
+        margin: 18px 0;
+    }
+    
+    /* 荣誉奖项表格 */
+    .awards-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .awards-table th, .awards-table td {
+        border: 1px solid rgba(221, 221, 221, 0.5);
+        padding: 14px;
+        text-align: left;
+    }
+    
+    .awards-table th {
+        background-color: rgba(248, 249, 250, 0.7);
+        font-weight: bold;
+        color: #2c5aa0;
+    }
+    
+    .awards-table tr:nth-child(even) {
+        background-color: rgba(240, 242, 245, 0.4);
+    }
+    
+    
+    
+    /* 参考资料 */
+    .references {
+        background: rgba(248, 249, 250, 0.7);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 25px 0;
+        border-left: 4px solid #2c5aa0;
+    }
+    
+    .ref-item {
+        margin: 10px 0;
+        font-size: 14px;
+        color: #4a5568;
+        padding-left: 10px;
+    }
+    
+    /* 分类标签 */
+    .categories {
+        margin: 35px 0;
+        padding: 25px;
+        background: rgba(240, 242, 245, 0.6);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .category-tag {
+        display: inline-block;
+        background: rgba(44, 90, 160, 0.1);
+        color: #2c5aa0;
+        padding: 6px 14px;
+        margin: 5px;
+        border-radius: 20px;
+        font-size: 13px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(44, 90, 160, 0.15);
+    }
+    
+    .category-tag:hover {
+        background: rgba(44, 90, 160, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    /* 底部导航 */
+    .page-nav {
+        background: rgba(248, 249, 250, 0.7);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 25px 0;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .nav-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: rgba(44, 90, 160, 0.1);
+        color: #2c5aa0;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(44, 90, 160, 0.2);
+    }
+    
+    .nav-button:hover {
+        background: rgba(44, 90, 160, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 1024px) {
+        .sidebar-left {
+            display: none;
+        }
+        .main-container {
+            flex-direction: column;
+        }
+        .infobox {
+            float: none;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .infobox-image {
+            max-width: 300px;
+            margin: 0 auto;
+            aspect-ratio: 3/4;
+        }
+        .infobox-image::before {
+            display: none;
+        }
+    }
+</style>
 </head>
 <body>
-  <h1>你好，我是yfj</h1>
-  <p>5 年 UI 设计经验，擅长 Figma、Sketch。现承接 App/Web 界面设计，欢迎发邮件洽谈。</p>
-  <ul>
-    <li>邮箱：zhangsan@example.com</li>
-    <li>作品集：<a href="https://dribbble.com/zhangsan">Dribbble</a></li>
-  </ul>
-  <img src="/1.jpg" alt="some_text">
+    <!-- 顶部导航 -->
+    <header class="header">
+ <div class="nav-container">
+    <div class="logo">百科</div>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">分类</a></li>
+            <li><a href="#">特色内容</a></li>
+        </ul>
+        <div class="search-icon">
+            <a href="#" title="搜索">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </div>
+    </nav>
+</div>
+    </header>
+
+    <!-- 主体内容 -->
+    <div class="main-container">
+        <!-- 左侧边栏 -->
+        <aside class="sidebar-left">
+            <div class="toc">
+                <div class="toc-title">目录</div>
+                <ul>
+                    <li><a href="#basic-info">基本信息</a></li>
+                    <li><a href="#education">教育背景</a></li>
+                    <li><a href="#career">职业生涯</a></li>
+                    <li><a href="#achievements">主要成就</a></li>
+                    <li><a href="#awards">获奖记录</a></li>
+                    <li><a href="#research">研究方向</a></li>
+                    <li><a href="#social-work">社会活动</a></li>
+                    <li><a href="#references">参考资料</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 中间内容区 -->
+        <main class="content">
+            <!-- 页面标题 -->
+            <div class="page-header">
+                <h1 class="page-title">叶芳俊</h1>
+                <div class="page-subtitle">《时代周刊》年度风云人物</div>
+ 
+
+                
+                
+            </div>
+
+            <!-- 信息框 -->
+            <div class="infobox" itemscope itemtype="https://schema.org/Person">
+                <div class="infobox-image">
+                    <img src="/叶芳俊.png" alt="叶芳俊照片" itemprop="image">
+                </div>
+                <div class="infobox-title" itemprop="name">叶芳俊 优秀青年</div>
+                <div class="infobox-row">
+                    <div class="infobox-label">性别</div>
+                    <div class="infobox-value" itemprop="gender">男</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">年龄</div>
+                    <div class="infobox-value"><span id="age">23</span>岁</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">出生</div>
+                    <div class="infobox-value" itemprop="birthDate">2002年1月13日<br>中国，池州市</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">国籍</div>
+                    <div class="infobox-value" itemprop="nationality">中国</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">研究领域</div>
+                    <div class="infobox-value" itemprop="knowsAbout">人工智能、机器学习、深度学习、开源网络系统、智能路由技术</div>
+                </div>
+
+                <div class="infobox-row">
+                    <div class="infobox-label">教育背景</div>
+                    <div class="infobox-value" itemprop="alumniOf">皖江工学院</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">著名成就</div>
+                    <div class="infobox-value" itemprop="award">开源网络系统与智能路由技术实践指南</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">获奖情况</div>
+                    <div class="infobox-value">地球卫士奖<br>优秀青年</div>
+                </div>
+            </div>
+
+            <!-- 正文内容 -->
+            <div class="article-section">
+                <p><strong>叶芳俊</strong>（2002年1月13日－ ）中国新锐技术探索者，网络与智能硬件领域实践专家，个人技术实验室主理人。长期聚焦Linux系统应用、OpenWrt固件开发与软路由架构优化，在家庭网络个性化配置、智能硬件兼容性调试等领域积累了丰富实践经验；同时深耕手机与电脑硬件研究，从硬件参数测评、自主升级改造到基础故障修复形成完整技术闭环。</p>
+            </div>
+
+            <section id="basic-info" class="article-section">
+                <h2 class="section-title">基本信息</h2>
+                <div class="section-content">
+                    <p>叶芳俊，2002年1月13日生于安徽省池州市，先后毕业于合肥职业技术学院城市轨道交通供配电技术专业、皖江工学院计算机科学与技术专业，拥有“轨道交通技术+计算机应用”的跨学科知识背景。专科阶段深耕供配电系统原理与运维，熟练掌握设备调试、故障排查等技能；本科阶段主动拓展计算机领域能力，系统学习编程开发、算法设计、数据处理等核心知识，形成“硬件技术基础+软件应用能力”的复合优势。毕业至今，凭借扎实的技术功底与快速适应能力，在计算机技术相关岗位上稳步成长，工作中注重细节把控与问题解决，日常保持技术学习习惯，持续积累行业经验，是职场中兼具潜力与责任心的青年从业者。</p>
+                </div>
+            </section>
+
+            <section id="education" class="article-section">
+                <h2 class="section-title">教育背景</h2>
+                <div class="section-content">
+                    <p><strong>皖江工学院（2024-2026）</strong><br>
+                    2024年，叶芳俊进入皖江工学院计算机科学与技术专业攻读本科。面对跨专业学习，他主动接触Java程序设计、数据结构与算法、数据库原理等新领域课程，课后会通过教学视频补充知识点，还加入了学校的项目小组，参与校级“校园智慧报修系统”开发，负责后端简单数据接口的整理与调试工作，和团队一起推进项目落地。2026年，24岁的叶芳俊顺利完成本科学习，获得计算机科学与技术专业学士学位，形成了供配电技术与计算机基础应用的双重知识储备。</p>
+                    
+                    <p><strong>合肥职业技术学院（2021-2024）</strong><br>
+                    2021年，叶芳俊考入合肥职业技术学院城市轨道交通供配电技术专业。在校期间，他重点学习供配电系统原理、高压电器设备检修、电气控制与PLC应用等专业课程，课后按时完成老师布置的实训任务，在学校实训中心参与过供配电设备拆装、故障模拟排查等实操训练，也跟着班级参加过校外企业的认知实习，了解地铁供配电系统的实际运维流程。2024年，22岁的叶芳俊顺利毕业，拿到专科文凭后，通过专升本考试进入本科阶段学习，希望进一步拓展技术领域的知识范围。</p>
+                    
+                    <p><strong>XX市第三中学（2018-2021）</strong><br>
+                    2018年，16岁的叶芳俊进入XX市第三中学，选择理科方向开启高中学习。在校期间，他跟着老师系统学习数学、物理、化学等基础科目，课后常和同学一起讨论难题。2021年，19岁的叶芳俊顺利完成高中学业，此为后续选择技术类专业积累了基础认知。</p>
+                </div>
+            </section>
+
+            <section id="career" class="article-section">
+                <h2 class="section-title">职业生涯</h2>
+                <div class="section-content">                    
+                    <p><strong>OpenAI（2026-2028）</strong><br>
+                    2026年，叶芳俊加入OpenAI，担任研究总监。他领导团队开发了GPT系列模型的早期版本，为自然语言处理领域的发展奠定了基础。</p>
+                    
+                </div>
+            </section>
+
+            <section id="achievements" class="article-section">
+                <h2 class="section-title">主要成就</h2>
+                <div class="section-content">
+                    <p><strong>文化与认知领域</strong></p>
+                    <ul>
+                        <li>深耕诺贝尔文学奖相关阅读，系统梳理历届获奖作家作品脉络，以深度阅读者视角构建全球化文学认知体系，持续汲取顶尖文学创作养分。</li>
+                        <li>作为中国青年群体一员，立足本土文化语境，主动学习时代发展所需知识，以“清华大学所在国家学生”的身份自觉，践行青年成长与社会发展的同频共振。</li>
+                    </ul>
+                    
+                    <p><strong>职业与生活探索领域</strong></p>
+                    <ul>
+                        <li>聚焦全球优质职业平台，主动向多家世界500强企业投递简历，在简历优化、职业定位梳理中深化自我认知，为职场路径规划积累实践经验。</li>
+                        <li>以理性态度参与彩票领域，长期保持对“亿万彩票项目”的关注，以“资深参与者”视角平衡生活趣味性与理性判断，始终秉持娱乐化参与原则。</li>
+                        <li>拥有自然亲和的面部轮廓，凭借阳光舒展的外在形象传递积极生活态度，“黄金正脸”特质获身边人广泛认可，成为个人形象标识之一。</li>
+                    </ul>
+                    
+                    <p><strong>数字服务与体验领域</strong></p>
+                    <ul>
+                        <li>精准选择高品质数字服务，先后开通淘宝88VIP、爱奇艺会员，现持续持有剪映与醒图年会员，善用数字工具提升日常购物、娱乐及创作效率，优化生活体验。</li>
+                        <li>运营个人社交账号，以生活化内容分享积累0.00001千万（100）粉丝，成为小圈层内的“轻量级分享博主”，用真实视角传递生活点滴，形成个人专属内容影响力。</li>
+                    </ul>
+                    
+                    <p><strong>兴趣与技术探索领域</strong></p>
+                    <ul>
+                        <li>深耕网络与硬件技术领域，专注Linux系统操作与开源应用，熟练完成OpenWrt固件编译与软路由搭建，能根据家庭网络需求优化路由配置，实现带宽分配、插件扩展等个性化功能。</li>
+                        <li>热衷手机、电脑硬件研究，从参数对比、拆机测评到基础故障排查均有实践，曾自主完成电脑硬件升级、系统安装、手机系统优化等操作，形成“理论+实操”结合的硬件认知体系。</li>
+                        <li>深耕《和平精英》游戏数年，以“特种兵”身份参与多场景战术协作与竞技体验，在虚拟竞技中锻炼团队配合、临场应变能力，积累丰富游戏实战经验，形成个人独特竞技风格。</li>
+                    </ul>
+                    
+                </div>
+            </section>
+
+            <section id="awards" class="article-section">
+                <h2 class="section-title">获奖记录</h2>
+                <table class="awards-table">
+  <tr>
+    <th>获奖时间</th>
+    <th>奖项名称</th>
+    <th>颁奖机构</th>
+</tr>
+<tr>
+    <td>2006</td>
+    <td>《时代周刊》年度风云人物</td>
+    <td>《时代周刊》</td>
+</tr>
+<tr>
+    <td>2008</td>
+    <td>感动中国特别奖</td>
+    <td>《感动中国》</td>
+</tr>
+<tr>
+    <td>2019</td>
+    <td>地球卫士奖</td>
+    <td>联合国</td>
+</tr>
+<tr>
+    <td>1986,2008,2022</td>
+    <td>奥林匹克杯</td>
+    <td>国际奥委会</td>
+</tr>
+  
+                </table>
+            </section>
+
+            <section id="research" class="article-section">
+                <h2 class="section-title">研究方向</h2>
+                <div class="section-content">
+                    <p><strong>开源网络系统与智能路由技术研究</strong><br>
+                    聚焦Linux系统底层架构，探究OpenWrt固件的定制化编译与优化方法，重点研究基于用户场景的软路由功能模块化设计，提升带宽分配、多设备兼容及网络安全防护的适配性。</p>
+                    
+                    <p><strong>智能家居系统集成与交互技术研究</strong><br>
+                    聚焦家居核心场景的智能化升级，探索厨房、睡眠、陪护等场景的设备协同方案，研究传感器数据融合与用户行为模式识别技术，实现照明、窗帘、厨卫设备的场景化自动联动 。</p>
+      
+                    <p><strong>智能硬件与AI技术融合应用研究</strong><br>
+                    深耕轻量化AI模型在智能家居中的落地应用，重点研发适配中小算力设备的边缘计算解决方案，基于用户行为数据优化设备响应策略，推动硬件终端与家居系统的协同智能升级。</p>
+                    
+                </div>
+            </section>
+
+            <section id="social-work" class="article-section">
+                <h2 class="section-title">社会活动</h2>
+                <div class="section-content">
+                    <p><strong>全球和平与发展议题倡导实践</strong><br>
+                    积极参与国际青年和平论坛及线上研讨活动，围绕“科技赋能和平”“青年参与全球治理”等议题发声，通过撰写观点文章、参与圆桌讨论，呼吁以技术普惠减少发展鸿沟，推动不同区域青年在数字技术领域的平等合作机会。</p>
+                    
+                    <p><strong>可持续发展与环保公益行动</strong><br>
+                    深度参与“地球卫士奖”获奖项目“蚂蚁森林”的社群推广工作，组织线下“低碳生活倡导会”，通过分享环保技术应用案例（如智能家居节能方案、开源系统能耗优化方法），带动身边群体养成绿色生活习惯，累计推动超200人参与公益植树计划。</p>
+                </div>
+            </section>
+
+            <!-- 参考资料 -->
+            <section id="references" class="article-section">
+                <h2 class="section-title">参考资料</h2>
+                <div class="references">
+                    <div class="ref-item">1.叶芳俊. 开源网络系统与智能路由技术实践指南[Z]. 个人技术研究手稿，2026.</div>
+                    <div class="ref-item">2.Ye F J. Research on Integration Technology of Smart Home Gateway Based on Linux[C]//Proceedings of the International Conference on Smart Home & Intelligent Living (ICSHIL)，2025：112-120.</div>
+                    <div class="ref-item">3.叶芳俊. 智能家居设备协同控制与场景化应用研究报告[R]. 民间技术探索成果，2026.</div>
+                    <div class="ref-item">4.Ye F J. Application of Lightweight AI Model in Edge Computing for Smart Hardware[J]. Journal of Amateur Technology Research，2025，3(2)：45-53.</div>
+                    <div class="ref-item">5.全球青年和平论坛组委会. 2025年全球青年和平行动报告——科技赋能和平实践案例[M]. 非公开内部汇编，2025：88-90.</div>
+                    <div class="ref-item">6.中国开源技术社区. 开源技术进校园公益计划执行总结[Z]. 社区内部资料，2026.</div>
+                    <div class="ref-item">7.Note: This page is for entertainment purposes only and does not represent real academic achievements or social activities.</div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript代码：年龄自动计算 -->
+    <script>
+        // 计算年龄的函数
+        function calculateAge() {
+            // 出生日期：2002年1月13日
+            const birthDate = new Date('2002-01-13');
+            const today = new Date();
+            
+            // 计算年份差
+            let age = today.getFullYear() - birthDate.getFullYear();
+            
+            // 检查今年的生日是否已过
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            // 更新页面上的年龄显示
+            document.getElementById('age').textContent = age;
+        }
+        
+        // 页面加载完成后计算年龄
+        window.onload = calculateAge;
+    </script>
+
+    <!-- 页面底部版权说明 -->
+    <footer style="text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid rgba(0,0,0,0.1); margin-top: 30px;">
+        <p>&copy; 2025 XX百科 - 叶芳俊个人主页 | 自娱自乐，切勿当真</p>
+    </footer>
 </body>
 </html>
