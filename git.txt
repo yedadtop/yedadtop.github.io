@@ -1,3 +1,0 @@
-git add . 
-git commit -m "手动清理了文件"
-git push origin main
