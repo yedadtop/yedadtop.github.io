@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://me.yedad.top/sitemap.xml
+Host: https://me.yedad.top
