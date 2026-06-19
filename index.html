@@ -4,6 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!--
+        ============================================================
+        多域名部署策略 / Multi-Domain Deployment Strategy
+        ============================================================
+        主域 (Primary)   : https://me.yedad.top/        (Cloudflare 部署)
+        镜像 (Mirror)    : https://yedadtop.github.io/   (GitHub Pages 部署)
+
+        SEO 处理原则:
+          - canonical / og:url / twitter:url / JSON-LD.url 全部指向主域
+          - robots.txt 的 Sitemap 与 Host 指向主域
+          - sitemap.xml 所有 <loc> 使用主域
+          - 不做客户端跳转, 仅依靠 canonical 标签合并权重
+        ============================================================
+    -->
+
     <!-- Primary Meta Tags -->
     <title>叶芳俊 (Quinn Ye) - 个人技术主页 | Linux · Python · 软件测试 · 边缘计算</title>
     <meta name="title" content="叶芳俊 (Quinn Ye) - 个人技术主页" />
